@@ -9,6 +9,9 @@ pub async fn run() -> Result<(), JsValue>{
     let promise_is_supported = xrsystem.is_session_supported(web_sys::XrSessionMode::ImmersiveVr);
     let is_supported = wasm_bindgen_futures::JsFuture::from(promise_is_supported).await?.as_bool();
 
+    let default_val = document.create_element("h1")?;
+    default_val.set_text_content(Some("Is XR supported?"));
+    
     let val = document.create_element("p")?;
     match is_supported {
         Some(true) => val.set_class_name("supported"),
@@ -16,6 +19,7 @@ pub async fn run() -> Result<(), JsValue>{
         None => val.set_class_name("unknown"),
     };
 
+    body.append_child(&default_val)?;
     body.append_child(&val)?;
 
     Ok(())
