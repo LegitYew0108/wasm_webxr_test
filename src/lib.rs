@@ -18,9 +18,9 @@ pub async fn run() -> Result<(), JsValue>{
     
     let val = document.create_element("p")?;
     match is_supported {
-        Some(true) => val.set_class_name("supported"),
-        Some(false) => val.set_class_name("not-supported"),
-        None => val.set_class_name("unknown"),
+        Some(true) => val.set_text_content(Some("supported")),
+        Some(false) => val.set_text_content(Some("not-supported")),
+        None => val.set_text_content(Some("unknown")),
     };
 
     body.append_child(&default_val)?;
