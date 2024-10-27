@@ -13,6 +13,7 @@ async fn run() -> Result<(), JsValue>{
     val.set_inner_html(&format!("XR is supported: {}", is_supported));
 
     body.append_child(&val)?;
+    loop {}
 
     Ok(())
 }
