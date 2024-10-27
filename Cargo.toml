@@ -1,10 +1,11 @@
 [package]
-name = "small"
+name = "wasm-webxr-test"
 version = "0.1.0"
 edition = "2021"
 
 [dependencies]
 wasm-bindgen = "0.2.95"
+wasm-bindgen-futures = "0.4.45"
 web-sys = {version = "0.3.72", features = ['Document', 'Element', 'HtmlElement', 'Node', 'Window','Navigator','XrSystem','XrSessionMode']}
 
 [lib]
