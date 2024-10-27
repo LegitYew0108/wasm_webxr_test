@@ -20,7 +20,7 @@ pub async fn run() -> Result<(), JsValue>{
 }
 
 #[wasm_bindgen(start)]
-pub async fn init() -> Result<(), JsValue> {
+pub async fn init_wasm() -> Result<(), JsValue> {
     let subscriber = tracing_subscriber::fmt()
         .with_max_level(Level::DEBUG)
         .finish();
